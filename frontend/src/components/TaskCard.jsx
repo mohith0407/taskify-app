@@ -23,7 +23,7 @@ const TaskCard = ({ task }) => {
 
 
   return (
-    <div className="flex justify-center md:flex flex-row gap-1 items-center">
+    <div className="flex justify-center gap-4 items-center">
       <div className="max-w-sm w-full bg-white px-6 pt-6 pb-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
         {/* Priority */}
         <h3 className="mb-3 text-xl font-bold text-indigo-600">
