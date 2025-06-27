@@ -15,6 +15,7 @@ logs/
 # dotenv
 .env
 .env.*  # e.g. .env.local, .env.production
+**/.env
 
 # OS-specific
 .DS_Store

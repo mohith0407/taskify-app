@@ -24,7 +24,7 @@ A full-stack Task Management Web App built with the **MERN stack** (MongoDB, Exp
 ![Users Dashboard](s3.png)
 ![Users Dashboard](s4.png)
 ![Task Creation/Update](s5.png)
-
+![Task Details](s6.png)
 
 ---
 

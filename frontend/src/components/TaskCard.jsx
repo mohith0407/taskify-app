@@ -3,10 +3,12 @@ import { formatDate } from "../helpers/formatDate";
 import { useAppDispatch } from "../redux/hooks";
 import { toggleTaskStatus, deleteTask } from "../redux/slices/taskSlice";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const TaskCard = ({ task }) => {
   const dispatch = useAppDispatch();
 
+  const navigate = useNavigate();
 
   const handleToggle = async () => {
     const newStatus = task.status === "completed" ? "pending" : "completed";
@@ -18,7 +20,7 @@ const TaskCard = ({ task }) => {
     }
   };
 
-  
+
 
   return (
     <div className="flex justify-center md:flex flex-row gap-1 items-center">
@@ -27,14 +29,14 @@ const TaskCard = ({ task }) => {
         <h3 className="mb-3 text-xl font-bold text-indigo-600">
           Task Priority: <span className="capitalize">{task.priority}</span>
         </h3>
-    
-      {/* Due Date */}
+
+        {/* Due Date */}
         <div className="relative ">
           <p className="absolute top-0  bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg mb-3">
             Due: {task.dueDate ? formatDate(task.dueDate) : "No due date"}
           </p>
         </div>
-        <br/>
+        <br />
         {/* Title */}
         <h1 className="mt-6 text-gray-800 text-2xl font-bold">{task.title}</h1>
 
@@ -66,13 +68,19 @@ const TaskCard = ({ task }) => {
         <div className="flex flex-wrap gap-3 mt-6">
           <button
             onClick={handleToggle}
-            className={`px-4 py-1 rounded-b-md text-sm font-medium transition ${
-              task.status === "completed"
+            className={`px-4 py-1 rounded-b-md text-sm font-medium transition ${task.status === "completed"
                 ? "bg-blue-500 text-white hover:bg-blue-600"
                 : "bg-green-100 text-green-700 hover:bg-green-200"
-            }`}
+              }`}
           >
             {task.status === "completed" ? "Mark as Pending" : "Mark as Completed"}
+          </button>
+          {/* View Task Button */}
+          <button
+            onClick={() => navigate(`/tasks/${task._id}`)}
+            className="px-4 py-1 bg-gray-200 hover:bg-gray-300 text-sm rounded-b-md font-medium"
+          >
+            View Details
           </button>
 
           {/* <Link

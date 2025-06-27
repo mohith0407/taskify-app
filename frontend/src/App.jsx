@@ -10,6 +10,7 @@ import Dashboard from "./layout/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './App.css';
+import TaskDetails from "./components/TaskDetails";
 
 export default function App() {
   return (
@@ -43,6 +44,14 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <TaskEdit />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tasks/:id"
+              element={
+                <ProtectedRoute>
+                  <TaskDetails />
                 </ProtectedRoute>
               }
             />

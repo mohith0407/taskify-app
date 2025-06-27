@@ -47,19 +47,18 @@ exports.getTaskById = async (req, res) => {
 
     if (!task) return res.status(404).json({ message: 'Task not found' });
 
-    if (
-  req.user.role !== 'admin' &&
-  task.createdBy.toString() !== req.user._id.toString() &&
-  task.assignedTo.toString() !== req.user._id.toString()
-) {
-  return res.status(403).json({ message: 'Not authorized to view this task' });
-}
-
+    if (req.user.role !== 'admin' &&
+      task.assignedTo._id.toString() !== req.user._id.toString()
+    ) {
+      return res.status(403).json({ message: 'Not authorized to view this task' });
+    }
+    
     res.json({task});
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
+// task.createdBy.toString() !== req.user._id.toString() &&
 
 // @desc    Update task
 exports.updateTask = async (req, res) => {
