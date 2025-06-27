@@ -26,7 +26,7 @@ const TaskList = () => {
       {loading ? (
         <p>Loading tasks...</p>
       ) : (
-        <div className="grid gap-3 grid-cols-3 text-black">
+        <div className="grid gap-3 grid-cols-3 md:grid-cols-1 text-black">
           {/* console.log(tasks); */}
           
           {Array.isArray(tasks) && tasks.length > 0 ? (
